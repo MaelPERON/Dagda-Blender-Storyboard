@@ -143,6 +143,9 @@ class SE_OT_ImportStoryThumbnails(bpy.types.Operator):
                 strip: bpy.types.ImageStrip
                 strip.right_handle = strip.frame_final_start + self.duration
 
+                strip.transform.scale_x = ratio_x
+                strip.transform.scale_y = ratio_y
+
                 # Set custom properties and transform offsets
                 strip.transform.offset_x = fit(
                     x_offset,
