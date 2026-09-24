@@ -32,6 +32,31 @@ class SE_OT_ImportStoryThumbnails(bpy.types.Operator):
         min=1,
     )
 
+    gutters: bpy.props.IntProperty(  # type: ignore
+        name="Gutters",
+        description="Space between thumbnails in pixels",
+        default=20,
+        min=0,
+    )
+
+    duration: bpy.props.IntProperty(  # type: ignore
+        name="Duration",
+        description="Duration of each thumbnail in frames",
+        default=24,
+        min=1,
+    )
+
+    fit_method: bpy.props.EnumProperty(  # type: ignore
+        name="Fit Method",
+        description="Method to fit the image in the strip",
+        items=[
+            ('WIDTH', "Width", "Fit the image to the strip width"),
+            ('HEIGHT', "Height", "Fit the image to the strip height"),
+            ('STRETCH', "Stretch", "Stretch the image to fill the strip size"),
+        ],
+        default='WIDTH'
+    )
+
     @property
     def images(self) -> dict[Path, Image.Image]:
         images = {}
