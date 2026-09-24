@@ -12,7 +12,7 @@ class SE_OT_ImportStoryThumbnails(bpy.types.Operator):
 
     directory: bpy.props.StringProperty(  # type: ignore
         subtype='DIR_PATH',
-        options={'SKIP_SAVE', 'HIDDEN'})
+        options={'HIDDEN'})
 
     files: bpy.props.CollectionProperty(  # type: ignore
         type=bpy.types.OperatorFileListElement,
