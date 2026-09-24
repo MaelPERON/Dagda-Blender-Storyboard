@@ -1,4 +1,7 @@
 import bpy
+import PIL.Image as Image
+from pathlib import Path
+from ..constants import IMAGE_EXTENSIONS
 
 
 class SE_OT_ImportStoryThumbnails(bpy.types.Operator):
@@ -28,6 +31,24 @@ class SE_OT_ImportStoryThumbnails(bpy.types.Operator):
         default=4,
         min=1,
     )
+
+    @property
+    def images(self) -> dict[Path, Image.Image]:
+        images = {}
+        if not self.directory:
+            return images
+
+        for file in self.files:
+            file_path = Path(self.directory) / file.name
+            if file_path.suffix.lower() in IMAGE_EXTENSIONS:
+                try:
+                    images[file_path] = Image.open(file_path)
+                except Exception as e:
+                    self.report(
+                        {'ERROR'},
+                        f"Failed to open image {file_path}: {e}")
+
+        return images
 
     def execute(self, context):
         # TODO
