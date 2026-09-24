@@ -24,8 +24,10 @@ bl_info = {
 
 from .constants import VENV  # noqa: E402
 from .venv import BlendVenv  # noqa: E402
+from . import logging  # noqa: E402
 from . import auto_load  # noqa: E402
 
+logging.setup()
 venv = BlendVenv(VENV)
 venv.create()
 venv.install_requirements("requirements.txt")
