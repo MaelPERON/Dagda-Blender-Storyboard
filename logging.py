@@ -18,6 +18,6 @@ def setup(level: str = "INFO"):
     for handler in root.handlers:
         handler.addFilter(
             lambda record: (
-                "dagda-blender-storyboard" in record.name
+                "dagda-blender-storyboard" in record.name.lower()
             )
         )
