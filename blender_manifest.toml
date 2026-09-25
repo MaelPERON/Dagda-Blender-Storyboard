@@ -2,9 +2,9 @@ schema_version = "1.0.0"
 
 # Example of manifest file for a Blender extension
 # Change the values according to your extension
-id = "storyboard_editing"
+id = "dagda_blender_storyboard"
 version = "1.0.0"
-name = "Storyboard_editing"
+name = "Dagda-Blender-Storyboard"
 tagline = "This is another extension"
 maintainer = "MaelPERON"
 # Supported types: "add-on", "theme"

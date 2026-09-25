@@ -12,7 +12,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 bl_info = {
-    "name": "Storyboard_editing",
+    "name": "Dagda-Blender-Storyboard",
     "author": "MaelPERON",
     "description": "",
     "blender": (2, 80, 0),
