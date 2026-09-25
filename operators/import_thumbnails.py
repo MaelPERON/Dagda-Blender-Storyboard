@@ -158,6 +158,18 @@ class SE_OT_ImportStoryThumbnails(bpy.types.Operator):
                     -max_y / 2, max_y / 2
                 )
 
+                for prop in [
+                    "index_row",
+                    "index_col",
+                    "ROWS",
+                    "COLS",
+                    "GUTTERS"
+                ]:
+                    strip[prop.lower()] = locals()[prop]
+
+                strip["image_resolution"] = (image.width, image.height)
+                strip["thumbnail_resolution"] = (width, height)
+
         self.report(
             {'INFO'},
             f"Imported {len(images)} images with {N} thumbnails each.")
