@@ -10,3 +10,6 @@ REQUIREMENTS = os.path.join(__file__, "..", "requirements.txt")
 
 # LISTS
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".bmp", ".tiff"}
+
+# VALUES
+LOGGING_LEVEL = "INFO"

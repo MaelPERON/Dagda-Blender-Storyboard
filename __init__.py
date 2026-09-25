@@ -22,12 +22,12 @@ bl_info = {
     "category": "Generic",
 }
 
-from .constants import VENV, REQUIREMENTS  # noqa: E402
+from .constants import VENV, REQUIREMENTS, LOGGING_LEVEL  # noqa: E402
 from .venv import BlendVenv  # noqa: E402
 from . import logging  # noqa: E402
 from . import auto_load  # noqa: E402
 
-logging.setup()
+logging.setup(LOGGING_LEVEL)
 venv = BlendVenv(VENV)
 venv.create()
 venv.install_requirements(REQUIREMENTS)
