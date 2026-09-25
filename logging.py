@@ -9,6 +9,8 @@ levels = {
     "NOTSET": 0,
 }
 
+logging.basicConfig(force=True)
+
 
 def setup(level: str = "INFO"):
     """Set up logging for the dagda-blender-storyboard module."""
