@@ -10,6 +10,13 @@ class SE_PT_Thumbnails(SequencerButtonsPanel, bpy.types.Panel):
 
     def draw(self, context: bpy.types.Context):
         layout = self.layout
+
+        op = layout.operator(
+            "sequencer.set_range_to_strips",
+            text="Set Range to Strips",
+        )
+        op.preview = False
+
         layout.operator(
             SE_OT_ImportStoryThumbnails.bl_idname,
             text="Import Story Thumbnails")
