@@ -96,8 +96,8 @@ class SE_OT_ImportStoryThumbnails(bpy.types.Operator):
         for path, image in images.items():
             # Calculing effective thumbnail dimensions
             width, height = (
-                (image.width - (GUTTERS * (ROWS - 1))) / ROWS,
-                (image.height - (GUTTERS * (COLS - 1))) / COLS
+                (image.width - (GUTTERS * (COLS - 1))) / COLS,
+                (image.height - (GUTTERS * (ROWS - 1))) / ROWS
             )
             # Resizing the thumbnail to fit the scene's width
             # while maintaining aspect ratio
@@ -126,12 +126,12 @@ class SE_OT_ImportStoryThumbnails(bpy.types.Operator):
             # Create a new strip for each thumbnail
             for i in range(N):
                 # Calculate row and column indices
-                index_row = i % ROWS
-                index_col = i // ROWS
+                index_row = i // COLS
+                index_col = i % COLS
 
                 # Calculate offsets
-                x_offset = delta_x * index_row
-                y_offset = delta_y * index_col
+                x_offset = delta_x * index_col
+                y_offset = delta_y * index_row
 
                 # Add the image strip to the sequencer
                 strip = sequencer.strips.new_image(
